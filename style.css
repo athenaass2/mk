@@ -1,27 +1,21 @@
-/* 
-  mk album site
-  Static website for GitHub Pages
-  No external dependencies
-*/
-
 :root {
-  --bg: #050505;
-  --text: #f1eee7;
-  --muted: #8d8980;
-  --soft: #161616;
-  --border: #2a2824;
-  --accent: #7b1515;
-  --accent-2: #9c7a3b;
+  --bg: #030303;
+  --text: #f4f0e8;
+  --muted: #aaa39a;
+  --soft: #111111;
+  --border: #272727;
+  --accent: #8b1111;
+  --gold: #b39243;
 }
 
 body.light {
-  --bg: #f1eee7;
-  --text: #080808;
-  --muted: #67635b;
-  --soft: #e4e0d6;
-  --border: #c8c1b4;
-  --accent: #7b1515;
-  --accent-2: #8a6b35;
+  --bg: #f4f0e8;
+  --text: #050505;
+  --muted: #5f5a52;
+  --soft: #e5ded2;
+  --border: #c8c0b4;
+  --accent: #8b1111;
+  --gold: #8a6d2e;
 }
 
 * {
@@ -38,14 +32,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.4s ease;
-}
-
-img {
-  max-width: 100%;
-  display: block;
 }
 
 a {
@@ -58,15 +46,15 @@ a {
   inset: 0;
   z-index: 999;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image:
-    linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(255,255,255,0.15) 25%, transparent 25%);
+    linear-gradient(45deg, rgba(255,255,255,0.12) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.12) 25%, transparent 25%);
   background-size: 4px 4px;
   mix-blend-mode: difference;
 }
 
-/* Header */
+/* HEADER */
 
 .site-header {
   position: fixed;
@@ -74,31 +62,36 @@ a {
   left: 0;
   width: 100%;
   z-index: 50;
-  padding: 22px 28px;
+
+  padding: 18px 28px;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  mix-blend-mode: difference;
+  justify-content: center;
 }
 
 .logo {
-  font-size: 14px;
+  position: absolute;
+  left: 28px;
+
+  font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: lowercase;
+  opacity: 0.7;
 }
 
 .nav {
   display: flex;
-  gap: 22px;
+  gap: 28px;
 }
 
 .nav a,
 .theme-toggle {
   font-size: 11px;
   color: var(--text);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.7;
+  opacity: 0.65;
   transition: opacity 0.3s ease;
 }
 
@@ -108,41 +101,33 @@ a {
 }
 
 .theme-toggle {
-  border: none;
+  position: absolute;
+  right: 28px;
   background: transparent;
+  border: none;
   cursor: pointer;
 }
 
-/* Sections */
+/* GERAL */
 
 .section {
   min-height: 100vh;
   padding: 120px 7vw;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.section-title {
-  margin-bottom: 48px;
-}
-
-.section-title h2 {
-  font-size: clamp(2rem, 6vw, 5.5rem);
-  font-weight: 400;
-  letter-spacing: -0.06em;
-}
-
 .small-code {
   font-family: "Courier New", monospace;
-  color: var(--muted);
+  color: var(--gold);
   font-size: 11px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: 14px;
 }
 
-/* Home */
+/* HOME */
 
 .hero {
   align-items: center;
@@ -154,236 +139,195 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 12vw, 12rem);
+  font-size: clamp(6rem, 18vw, 13rem);
   font-weight: 400;
-  letter-spacing: -0.08em;
-  line-height: 0.9;
+  letter-spacing: -0.1em;
+  line-height: 0.85;
   text-transform: uppercase;
+
+  text-shadow:
+    -2px 0 rgba(0, 130, 255, 0.35),
+    2px 0 rgba(255, 70, 0, 0.25);
 }
 
 .artist-name {
-  margin-top: 18px;
-  font-size: 13px;
+  margin-top: 32px;
+
+  font-size: 14px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
 .hero-phrase {
-  margin: 40px auto 32px;
-  max-width: 440px;
+  margin: 42px auto 34px;
+
   color: var(--muted);
   font-size: 14px;
 }
 
 .minimal-button {
   display: inline-block;
+
   border: 1px solid var(--border);
-  padding: 14px 28px;
+  padding: 14px 32px;
+
   font-size: 11px;
-  letter-spacing: 0.2em;
-  transition: background 0.3s ease, color 0.3s ease;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
 .minimal-button:hover {
   background: var(--text);
   color: var(--bg);
+  border-color: var(--text);
 }
 
-/* Album */
+/* ALBUM */
 
-.album-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7vw;
-  align-items: center;
+.album-section {
+  justify-content: flex-start;
+  padding-top: 90px;
 }
 
-.cover-wrap {
-  background: var(--soft);
-  padding: 12px;
-}
-
-.album-cover {
-  aspect-ratio: 1 / 1;
+.album-simple {
   width: 100%;
-  object-fit: cover;
-  filter: grayscale(30%) contrast(110%);
+  max-width: 880px;
 }
 
-.album-info h3 {
-  font-size: clamp(2rem, 5vw, 5rem);
+.album-simple h2 {
+  font-size: clamp(5rem, 13vw, 10rem);
   font-weight: 400;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
   text-transform: uppercase;
+
+  margin-bottom: 44px;
 }
 
 .release {
-  color: var(--accent-2);
   font-family: "Courier New", monospace;
+  color: var(--gold);
   font-size: 12px;
-  text-transform: uppercase;
-  margin: 16px 0 40px;
+  letter-spacing: 0.08em;
+  margin-bottom: 44px;
 }
 
 .tracklist {
   list-style: none;
-  counter-reset: track;
   border-top: 1px solid var(--border);
+  width: 100%;
 }
 
 .tracklist li {
-  padding: 18px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--border);
+
   color: var(--muted);
+  font-size: 16px;
+  font-weight: 300;
+
   cursor: pointer;
-  transition: color 0.3s ease, padding-left 0.3s ease;
+  transition: color 0.3s ease, padding-left 0.3s ease, opacity 0.3s ease;
 }
 
 .tracklist li:hover {
   color: var(--text);
-  padding-left: 12px;
+  padding-left: 10px;
 }
 
-.track-hint {
-  margin-top: 24px;
-  font-family: "Courier New", monospace;
-  color: var(--accent);
-  font-size: 12px;
-  min-height: 20px;
+.tracklist li.selected {
+  color: var(--text);
+  padding-left: 10px;
 }
 
-/* Manifesto */
+/* 90 MUSIC */
 
-.manifesto {
-  max-width: 880px;
+.music-section {
+  justify-content: center;
 }
 
-.manifesto h2 {
-  font-size: clamp(2.4rem, 7vw, 6rem);
-  line-height: 0.95;
-  font-weight: 400;
-  letter-spacing: -0.07em;
+.music-manifesto {
+  max-width: 980px;
+}
+
+.music-manifesto h2 {
+  margin-top: 32px;
   margin-bottom: 42px;
-}
 
-.manifesto p {
-  max-width: 600px;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-
-/* Archive */
-
-.archive-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-}
-
-.archive-card {
-  min-height: 260px;
-  border: 1px solid var(--border);
-  padding: 20px;
-  background: rgba(255,255,255,0.015);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-}
-
-.archive-card:hover {
-  transform: translateY(-6px);
-  background: var(--soft);
-  border-color: var(--accent);
-}
-
-.archive-card span {
-  font-family: "Courier New", monospace;
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.archive-card h3 {
-  font-size: 1rem;
+  font-size: clamp(4rem, 9vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.08em;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
 }
 
-.archive-card p {
-  font-size: 13px;
+.music-manifesto p {
+  max-width: 720px;
+
   color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+
+  margin-bottom: 28px;
 }
 
-.image-card {
-  padding: 0;
-  overflow: hidden;
+.text-link {
+  display: inline-block;
+
+  color: var(--muted);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  transition: color 0.3s ease;
 }
 
-.image-card img {
-  height: 150px;
-  width: 100%;
-  object-fit: cover;
-  filter: grayscale(60%);
+.text-link:hover {
+  color: var(--text);
 }
 
-.image-card div {
-  padding: 20px;
+/* DOCUMENTÁRIO */
+
+.documentary-section {
+  justify-content: center;
 }
 
-.archive-output {
-  margin-top: 24px;
-  font-family: "Courier New", monospace;
-  font-size: 12px;
-  color: var(--accent-2);
+.documentary-box {
+  max-width: 900px;
 }
 
-/* Merch */
+.documentary-box h2 {
+  margin-top: 28px;
+  margin-bottom: 34px;
 
-.merch-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.merch-card {
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.015);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.merch-card:hover {
-  transform: translateY(-6px);
-  background: var(--soft);
-}
-
-.merch-card img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  filter: grayscale(35%) contrast(105%);
-}
-
-.merch-info {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.merch-info h3,
-.merch-info p {
-  font-size: 12px;
+  font-size: clamp(5rem, 14vw, 12rem);
   font-weight: 400;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: -0.1em;
+  line-height: 0.85;
+  text-transform: lowercase;
 }
 
-/* Listen */
+.documentary-box p {
+  max-width: 520px;
+
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.documentary-code {
+  margin-top: 42px;
+
+  font-family: "Courier New", monospace;
+  color: var(--accent) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* LISTEN */
 
 .listen-section {
   text-align: center;
@@ -391,10 +335,11 @@ a {
 }
 
 .listen-box h2 {
+  max-width: 760px;
+
   font-size: clamp(2rem, 6vw, 5rem);
   font-weight: 400;
   letter-spacing: -0.06em;
-  max-width: 760px;
 }
 
 .listen-links {
@@ -402,16 +347,19 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
+
   margin-top: 42px;
 }
 
 .listen-links a {
   border: 1px solid var(--border);
   padding: 14px 18px;
+
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
+
   transition: color 0.3s ease, background 0.3s ease;
 }
 
@@ -420,21 +368,24 @@ a {
   color: var(--bg);
 }
 
-/* Footer */
+/* FOOTER */
 
 .site-footer {
   padding: 28px;
+
   display: flex;
   justify-content: space-between;
   gap: 20px;
+
   color: var(--muted);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+
   border-top: 1px solid var(--border);
 }
 
-/* Animations */
+/* ANIMAÇÃO */
 
 .fade-in {
   opacity: 0;
@@ -447,29 +398,29 @@ a {
   transform: translateY(0);
 }
 
-/* Responsivo */
+/* RESPONSIVO */
 
 @media (max-width: 900px) {
   .site-header {
+    justify-content: space-between;
     padding: 18px;
+  }
+
+  .logo,
+  .theme-toggle {
+    position: static;
   }
 
   .nav {
     display: none;
   }
 
-  .album-grid,
-  .archive-grid,
-  .merch-grid {
-    grid-template-columns: 1fr;
-  }
-
   .section {
-    padding: 110px 22px;
+    padding: 100px 24px;
   }
 
-  .archive-card {
-    min-height: 190px;
+  .album-section {
+    padding-top: 110px;
   }
 
   .site-footer {
@@ -479,7 +430,19 @@ a {
 
 @media (max-width: 520px) {
   .hero h1 {
-    font-size: 3.6rem;
+    font-size: 5rem;
+  }
+
+  .music-manifesto h2 {
+    font-size: 3.5rem;
+  }
+
+  .album-simple h2 {
+    font-size: 5rem;
+  }
+
+  .documentary-box h2 {
+    font-size: 4.3rem;
   }
 
   .listen-links {

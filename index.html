@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Site oficial do álbum de mk." />
-  <title>mk — [COLOQUE O NOME DO ÁLBUM]</title>
 
+  <title>mk — WAR</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
   <div class="noise"></div>
 
@@ -16,72 +16,60 @@
 
     <nav class="nav">
       <a href="#album">album</a>
-      <a href="#manifesto">manifesto</a>
-      <a href="#archive">archive</a>
-      <a href="#merch">merch</a>
+      <a href="#manifesto">90 music</a>
+      <a href="#documentary">documentário</a>
       <a href="#listen">listen</a>
     </nav>
 
-    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-      light
-    </button>
+    <button class="theme-toggle" id="themeToggle">light</button>
   </header>
 
   <main>
     <!-- HOME -->
     <section id="home" class="section hero">
       <div class="hero-content fade-in">
-        <p class="small-code">FILE_001 / PRIVATE ROLLOUT</p>
+        <p class="small-code">we did it kid</p>
+
         <h1>WAR</h1>
+
         <p class="artist-name">mk</p>
+
         <p class="hero-phrase">
           thank god for me
         </p>
+
         <a href="#album" class="minimal-button">ENTER</a>
       </div>
     </section>
 
     <!-- ALBUM -->
     <section id="album" class="section album-section">
-      <div class="section-title">
-        <p class="small-code">ALBUM</p>
-        <h2>the sound</h2>
-      </div>
+      <div class="album-simple fade-in">
+        <h2>WAR</h2>
 
-      <div class="album-grid">
-        <div class="cover-wrap fade-in">
-          <img src="./assets/cover.jpg" alt="Capa do álbum" class="album-cover" />
-        </div>
+        <p class="release">COMING SOON</p>
 
-        <div class="album-info fade-in">
-          <h3>WAR</h3>
-          <p class="release">coming soon</p>
-
-          <ol class="tracklist">
-            <li data-note="the opening wound">01. intro </li>
-            <li data-note="a prayer under distortion">02. fall in love</li>
-            <li data-note="love sounded like a threat">03. my way</li>
-            <li data-note="ego, silence and broken glass">04. war</li>
-            <li data-note="the city after midnight">05. 530 freestyle</li>
-            <li data-note="fame as a locked door">06. hold up</li>
-            <li data-note="turn the damage into sound">07. get in</li>
-            <li data-note="somewhere between faith and chaos">08. god made me free</li>
-          </ol>
-
-          <p class="track-hint" id="trackHint">
-            passe o mouse nas faixas
-          </p>
-        </div>
+        <ol class="tracklist">
+          <li>01. intro</li>
+          <li>02. fall in love</li>
+          <li>03. my way</li>
+          <li>04. war</li>
+          <li>05. 530 freestyle</li>
+          <li>06. hold up</li>
+          <li>07. get in</li>
+          <li>08. god made me free</li>
+        </ol>
       </div>
     </section>
 
-    <!-- MANIFESTO -->
-    <section id="manifesto" class="section manifesto-section">
-      <div class="manifesto fade-in">
+    <!-- 90 MUSIC -->
+    <section id="manifesto" class="section music-section">
+      <div class="music-manifesto fade-in">
         <p class="small-code">90 MUSIC</p>
 
         <h2>
-          isso não é apenas um grupo musical.<br />
+          isso não é apenas um<br />
+          grupo musical.<br />
           é a propria musica.
         </h2>
 
@@ -90,98 +78,28 @@
           Se os Beatles fossem latinos, eles seriam nós
         </p>
 
-        <p>
+        <a href="#listen" class="text-link">
           GLOCK NO SPOTIFY E SOUNDCLOUD
+        </a>
+      </div>
+    </section>
+
+    <!-- DOCUMENTÁRIO -->
+    <section id="documentary" class="section documentary-section">
+      <div class="documentary-box fade-in">
+        <p class="small-code">DOCUMENTÁRIO</p>
+
+        <h2>
+          em breve
+        </h2>
+
+        <p>
+          imagens, bastidores e registros da era WAR.
         </p>
-      </div>
-    </section>
 
-    <!-- ARCHIVE -->
-    <section id="archive" class="section archive-section">
-      <div class="section-title">
-        <p class="small-code">ARCHIVE</p>
-        <h2>visual evidence</h2>
-      </div>
-
-      <div class="archive-grid">
-        <article class="archive-card fade-in" data-message="notes opened">
-          <span>001</span>
-          <h3>notes</h3>
-          <p>fragments written at 03:17</p>
-        </article>
-
-        <article class="archive-card fade-in image-card" data-message="studio file opened">
-          <img src="./assets/archive-01.jpg" alt="Arquivo visual do álbum" />
-          <div>
-            <span>002</span>
-            <h3>studio</h3>
-            <p>voice memos, dust, red lights</p>
-          </div>
-        </article>
-
-        <article class="archive-card fade-in" data-message="visual folder opened">
-          <span>003</span>
-          <h3>visuals</h3>
-          <p>symbols, shadows, faces erased</p>
-        </article>
-
-        <article class="archive-card fade-in" data-message="radio transmission opened">
-          <span>004</span>
-          <h3>radio</h3>
-          <p>broadcast from nowhere</p>
-        </article>
-
-        <article class="archive-card fade-in" data-message="era document opened">
-          <span>005</span>
-          <h3>era</h3>
-          <p>before the world understands</p>
-        </article>
-      </div>
-
-      <p class="archive-output" id="archiveOutput">
-        click any file
-      </p>
-    </section>
-
-    <!-- MERCH -->
-    <section id="merch" class="section merch-section">
-      <div class="section-title">
-        <p class="small-code">MERCH</p>
-        <h2>objects from the era</h2>
-      </div>
-
-      <div class="merch-grid">
-        <article class="merch-card fade-in">
-          <img src="./assets/merch-shirt.jpg" alt="Camiseta do álbum" />
-          <div class="merch-info">
-            <h3>black shirt</h3>
-            <p>R$ 119</p>
-          </div>
-        </article>
-
-        <article class="merch-card fade-in">
-          <img src="./assets/merch-cd.jpg" alt="CD do álbum" />
-          <div class="merch-info">
-            <h3>limited cd</h3>
-            <p>R$ 49</p>
-          </div>
-        </article>
-
-        <article class="merch-card fade-in">
-          <img src="./assets/merch-cd.jpg" alt="Vinil do álbum" />
-          <div class="merch-info">
-            <h3>vinyl object</h3>
-            <p>R$ 179</p>
-          </div>
-        </article>
-
-        <article class="merch-card fade-in">
-          <img src="./assets/merch-poster.jpg" alt="Pôster do álbum" />
-          <div class="merch-info">
-            <h3>poster file</h3>
-            <p>R$ 39</p>
-          </div>
-        </article>
+        <p class="documentary-code">
+          FILE_090 / NOT RELEASED YET
+        </p>
       </div>
     </section>
 
@@ -189,6 +107,7 @@
     <section id="listen" class="section listen-section">
       <div class="listen-box fade-in">
         <p class="small-code">LISTEN</p>
+
         <h2>when it appears, you will know</h2>
 
         <div class="listen-links">
