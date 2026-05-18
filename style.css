@@ -1,0 +1,492 @@
+/* 
+  mk album site
+  Static website for GitHub Pages
+  No external dependencies
+*/
+
+:root {
+  --bg: #050505;
+  --text: #f1eee7;
+  --muted: #8d8980;
+  --soft: #161616;
+  --border: #2a2824;
+  --accent: #7b1515;
+  --accent-2: #9c7a3b;
+}
+
+body.light {
+  --bg: #f1eee7;
+  --text: #080808;
+  --muted: #67635b;
+  --soft: #e4e0d6;
+  --border: #c8c1b4;
+  --accent: #7b1515;
+  --accent-2: #8a6b35;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.15) 25%, transparent 25%);
+  background-size: 4px 4px;
+  mix-blend-mode: difference;
+}
+
+/* Header */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  mix-blend-mode: difference;
+}
+
+.logo {
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  text-transform: lowercase;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+}
+
+.nav a,
+.theme-toggle {
+  font-size: 11px;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.nav a:hover,
+.theme-toggle:hover {
+  opacity: 1;
+}
+
+.theme-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Sections */
+
+.section {
+  min-height: 100vh;
+  padding: 120px 7vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-title {
+  margin-bottom: 48px;
+}
+
+.section-title h2 {
+  font-size: clamp(2rem, 6vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+}
+
+.small-code {
+  font-family: "Courier New", monospace;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* Home */
+
+.hero {
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 12vw, 12rem);
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.artist-name {
+  margin-top: 18px;
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-phrase {
+  margin: 40px auto 32px;
+  max-width: 440px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.minimal-button {
+  display: inline-block;
+  border: 1px solid var(--border);
+  padding: 14px 28px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.minimal-button:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* Album */
+
+.album-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+  align-items: center;
+}
+
+.cover-wrap {
+  background: var(--soft);
+  padding: 12px;
+}
+
+.album-cover {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(30%) contrast(110%);
+}
+
+.album-info h3 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.release {
+  color: var(--accent-2);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 16px 0 40px;
+}
+
+.tracklist {
+  list-style: none;
+  counter-reset: track;
+  border-top: 1px solid var(--border);
+}
+
+.tracklist li {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.tracklist li:hover {
+  color: var(--text);
+  padding-left: 12px;
+}
+
+.track-hint {
+  margin-top: 24px;
+  font-family: "Courier New", monospace;
+  color: var(--accent);
+  font-size: 12px;
+  min-height: 20px;
+}
+
+/* Manifesto */
+
+.manifesto {
+  max-width: 880px;
+}
+
+.manifesto h2 {
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  margin-bottom: 42px;
+}
+
+.manifesto p {
+  max-width: 600px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Archive */
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.archive-card {
+  min-height: 260px;
+  border: 1px solid var(--border);
+  padding: 20px;
+  background: rgba(255,255,255,0.015);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.archive-card:hover {
+  transform: translateY(-6px);
+  background: var(--soft);
+  border-color: var(--accent);
+}
+
+.archive-card span {
+  font-family: "Courier New", monospace;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.archive-card h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.archive-card p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.image-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.image-card img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(60%);
+}
+
+.image-card div {
+  padding: 20px;
+}
+
+.archive-output {
+  margin-top: 24px;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  color: var(--accent-2);
+}
+
+/* Merch */
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.merch-card {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.015);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.merch-card:hover {
+  transform: translateY(-6px);
+  background: var(--soft);
+}
+
+.merch-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter: grayscale(35%) contrast(105%);
+}
+
+.merch-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.merch-info h3,
+.merch-info p {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Listen */
+
+.listen-section {
+  text-align: center;
+  align-items: center;
+}
+
+.listen-box h2 {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  max-width: 760px;
+}
+
+.listen-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 42px;
+}
+
+.listen-links a {
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.listen-links a:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-top: 1px solid var(--border);
+}
+
+/* Animations */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsivo */
+
+@media (max-width: 900px) {
+  .site-header {
+    padding: 18px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .album-grid,
+  .archive-grid,
+  .merch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 110px 22px;
+  }
+
+  .archive-card {
+    min-height: 190px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero h1 {
+    font-size: 3.6rem;
+  }
+
+  .listen-links {
+    flex-direction: column;
+  }
+
+  .listen-links a {
+    width: 100%;
+  }
+}

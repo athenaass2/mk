@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site oficial do álbum de mk." />
+  <title>mk — [COLOQUE O NOME DO ÁLBUM]</title>
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <a href="#home" class="logo">mk</a>
+
+    <nav class="nav">
+      <a href="#album">album</a>
+      <a href="#manifesto">manifesto</a>
+      <a href="#archive">archive</a>
+      <a href="#merch">merch</a>
+      <a href="#listen">listen</a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+      light
+    </button>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="section hero">
+      <div class="hero-content fade-in">
+        <p class="small-code">FILE_001 / PRIVATE ROLLOUT</p>
+        <h1>[COLOQUE O NOME DO ÁLBUM]</h1>
+        <p class="artist-name">mk</p>
+        <p class="hero-phrase">
+          made somewhere between faith and chaos
+        </p>
+        <a href="#album" class="minimal-button">ENTER</a>
+      </div>
+    </section>
+
+    <!-- ALBUM -->
+    <section id="album" class="section album-section">
+      <div class="section-title">
+        <p class="small-code">ALBUM</p>
+        <h2>the sound file</h2>
+      </div>
+
+      <div class="album-grid">
+        <div class="cover-wrap fade-in">
+          <img src="./assets/cover.jpg" alt="Capa do álbum" class="album-cover" />
+        </div>
+
+        <div class="album-info fade-in">
+          <h3>[COLOQUE O NOME DO ÁLBUM]</h3>
+          <p class="release">coming soon</p>
+
+          <ol class="tracklist">
+            <li data-note="the opening wound">01. intro / no signal</li>
+            <li data-note="a prayer under distortion">02. holy static</li>
+            <li data-note="love sounded like a threat">03. red room</li>
+            <li data-note="ego, silence and broken glass">04. mirrors don’t lie</li>
+            <li data-note="the city after midnight">05. outside again</li>
+            <li data-note="fame as a locked door">06. archive of me</li>
+            <li data-note="turn the damage into sound">07. damage theory</li>
+            <li data-note="somewhere between faith and chaos">08. final transmission</li>
+          </ol>
+
+          <p class="track-hint" id="trackHint">
+            passe o mouse nas faixas
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section id="manifesto" class="section manifesto-section">
+      <div class="manifesto fade-in">
+        <p class="small-code">MANIFESTO</p>
+
+        <h2>
+          this is not an album.<br />
+          this is the damage turned into sound.
+        </h2>
+
+        <p>
+          Este projeto nasceu no silêncio, quando ninguém estava olhando.
+          Não é apenas música. É um arquivo emocional, uma tentativa de
+          transformar caos em forma, fé em ruído e ambição em memória.
+        </p>
+
+        <p>
+          Cada faixa é uma sala vazia. Cada imagem é uma prova.
+          Cada palavra existe como se tivesse sido encontrada depois de um incêndio.
+        </p>
+      </div>
+    </section>
+
+    <!-- ARCHIVE -->
+    <section id="archive" class="section archive-section">
+      <div class="section-title">
+        <p class="small-code">ARCHIVE</p>
+        <h2>visual evidence</h2>
+      </div>
+
+      <div class="archive-grid">
+        <article class="archive-card fade-in" data-message="notes opened">
+          <span>001</span>
+          <h3>notes</h3>
+          <p>fragments written at 03:17</p>
+        </article>
+
+        <article class="archive-card fade-in image-card" data-message="studio file opened">
+          <img src="./assets/archive-01.jpg" alt="Arquivo visual do álbum" />
+          <div>
+            <span>002</span>
+            <h3>studio</h3>
+            <p>voice memos, dust, red lights</p>
+          </div>
+        </article>
+
+        <article class="archive-card fade-in" data-message="visual folder opened">
+          <span>003</span>
+          <h3>visuals</h3>
+          <p>symbols, shadows, faces erased</p>
+        </article>
+
+        <article class="archive-card fade-in" data-message="radio transmission opened">
+          <span>004</span>
+          <h3>radio</h3>
+          <p>broadcast from nowhere</p>
+        </article>
+
+        <article class="archive-card fade-in" data-message="era document opened">
+          <span>005</span>
+          <h3>era</h3>
+          <p>before the world understands</p>
+        </article>
+      </div>
+
+      <p class="archive-output" id="archiveOutput">
+        click any file
+      </p>
+    </section>
+
+    <!-- MERCH -->
+    <section id="merch" class="section merch-section">
+      <div class="section-title">
+        <p class="small-code">MERCH</p>
+        <h2>objects from the era</h2>
+      </div>
+
+      <div class="merch-grid">
+        <article class="merch-card fade-in">
+          <img src="./assets/merch-shirt.jpg" alt="Camiseta do álbum" />
+          <div class="merch-info">
+            <h3>black shirt</h3>
+            <p>R$ 119</p>
+          </div>
+        </article>
+
+        <article class="merch-card fade-in">
+          <img src="./assets/merch-cd.jpg" alt="CD do álbum" />
+          <div class="merch-info">
+            <h3>limited cd</h3>
+            <p>R$ 49</p>
+          </div>
+        </article>
+
+        <article class="merch-card fade-in">
+          <img src="./assets/merch-cd.jpg" alt="Vinil do álbum" />
+          <div class="merch-info">
+            <h3>vinyl object</h3>
+            <p>R$ 179</p>
+          </div>
+        </article>
+
+        <article class="merch-card fade-in">
+          <img src="./assets/merch-poster.jpg" alt="Pôster do álbum" />
+          <div class="merch-info">
+            <h3>poster file</h3>
+            <p>R$ 39</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LISTEN -->
+    <section id="listen" class="section listen-section">
+      <div class="listen-box fade-in">
+        <p class="small-code">LISTEN</p>
+        <h2>when it appears, you will know</h2>
+
+        <div class="listen-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">spotify</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">apple music</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">youtube</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">soundcloud</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© mk — all rights reserved</p>
+    <p>made somewhere between faith and chaos</p>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
